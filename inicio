@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        /* Estilos generales */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Estilos del cuerpo de la página */
+        body {
+            background-color: black;
+            font-family:'Times New Roman', Times, serif;
+            color: white;
+        }
+
+        /* Estilos del contenedor del formulario */
+        .container {
+            width: 80%;
+            max-width: 600px;
+            margin: 0 auto;
+            display: flex;
+
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        /* Estilos del título de la página */
+        h1 {
+            font-size: 36px;
+            text-align: center;
+            margin-bottom: 20px;
+            font-family: 'Times New Roman', Times, serif;
+        }
+
+        /* Estilos del formulario */
+        form {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* Estilos de los campos de entrada */
+        input {
+            width: 80%;
+            height: 40px;
+            border: none;
+            outline: none;
+            padding: 10px;
+            margin: 10px;
+            font-size: 18px;
+        }
+
+        /* Estilos del botón de envío */
+        input[type="submit"] {
+            width: 40%;
+            background-color: white;
+            color: black;
+            cursor: pointer;
+        }
+
+        /* Estilos del mensaje de error */
+        .error {
+            width: 80%;
+            background-color: red;
+            color: white;
+            padding: 10px;
+            margin: 10px;
+            text-align: center;
+            display: none;
+            
+        }
+        .logo {
+            border-radius: 50%;
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+        }
+        
+    </style>
+    <script>
+        // Función que se ejecuta cuando se carga la página
+        window.onload = function() {
+            // Obtener el formulario y el mensaje de error
+            var form = document.getElementById("form");
+            var error = document.getElementById("error");
+
+            // Añadir un evento de envío al formulario
+            form.addEventListener("submit", function(event) {
+                // Obtener los valores de los campos de entrada
+                var email = document.getElementById("email").value;
+                var password = document.getElementById("password").value;
+
+                // Validar que los campos no estén vacíos
+                if (email == "" || password == "") {
+                    // Mostrar el mensaje de error
+                    error.innerHTML = "Por favor, rellena todos los campos";
+                    error.style.display = "block";
+
+                    // Evitar que se envíe el formulario
+                    event.preventDefault();
+                } else {
+                    // Validar que la contraseña sea la correcta
+                    if (password != "APRENDER2024") {
+                        // Mostrar el mensaje de error
+                        error.innerHTML = "Contraseña incorrecta";
+                        error.style.display = "block";
+
+                        // Evitar que se envíe el formulario
+                        event.preventDefault();
+                    } else {
+                        // Ocultar el mensaje de error
+                        error.style.display = "none";
+
+                        // Permitir que se envíe el formulario
+                        // Aquí puedes redirigir al usuario a otra página o hacer lo que quieras
+                    }
+                }
+            });
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <img src="https://polyglot-files.000webhostapp.com/wp-content/uploads/2024/04/cropped-b0e12-favicon_192x192_created_by_logaster-1.webp" alt="Logo" class="logo">
+        <h1>Welcome to Polyglot</h1>
+        
+        <form id="form" method="POST" action="file:///C:/Users/Steven%20Pico/OneDrive/POLYGLOT.SA/Idiomas.html">
+            <input type="email" id="email" name="email" placeholder="Correo electrónico">
+            <input type="password" id="password" name="password" placeholder="Contraseña">
+            <input type="submit" id="submit" name="submit" value="Entrar"> 
+        </form>
+        <div class="error" id="error"></div>
+    </div>
+    
+</body>
+</html>
