@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lecciones de Idiomas</title>
+    <style>
+        /* Estilo general del cuerpo */
+        body {
+            background-color: #1e1e1e; /* Color de fondo oscuro */
+            color: #ffffff; /* Color de texto blanco */
+            font-family: 'Times New Roman', Times, serif, sans-serif; /* Fuente moderna */
+            margin: 0; /* Elimina el margen por defecto */
+            padding: 20px; /* Espaciado interno */
+            display: flex; /* Utiliza Flexbox para centrar */
+            flex-direction: column; /* Coloca los elementos en columna */
+            align-items: center; /* Alinea los elementos al centro */
+        }
+
+        /* Estilo del contenedor de sesiones */
+        #container {
+            width: 100%; /* Ancho total del contenedor */
+            max-width: 800px; /* Ancho máximo */
+            margin: 0 auto; /* Centrando el contenedor */
+            border-radius: 8px; /* Bordes redondeados */
+            overflow: hidden; /* Evita que el contenido se desborde */
+        }
+
+        /* Estilo de las sesiones como tarjetas */
+        .session {
+            background-color: #2a2a2a; /* Color de fondo de las sesiones */
+            border: 1px solid #ccc; /* Borde gris claro */
+            border-radius: 8px; /* Bordes redondeados */
+            padding: 20px; /* Relleno interno */
+            margin: 10px 0; /* Margen entre sesiones */
+            transition: transform 0.3s; /* Transición suave para el efecto hover */
+        }
+
+        .session:hover {
+            transform: scale(1.02); /* Aumenta el tamaño al pasar el mouse */
+        }
+
+        /* Estilo para el audio */
+        audio {
+            width: 100%; /* Ancho total del audio */
+            margin-bottom: 10px; /* Margen inferior */
+            border-radius: 4px; /* Bordes redondeados */
+            background-color: #333; /* Color de fondo del audio */
+        }
+
+        /* Estilo de los párrafos */
+        p {
+            color: #ffffff; /* Color de texto blanco */
+            margin: 10px 0; /* Margen superior e inferior */
+        }
+
+        /* Estilo de los inputs */
+        input {
+            width: 95%; /* Ancho total */
+            height: 50px; /* Altura del input */
+            padding: 0 10px; /* Relleno interno lateral */
+            border: 1px solid #ccc; /* Borde gris claro */
+            border-radius: 4px; /* Bordes redondeados */
+            margin-bottom: 10px; /* Margen inferior */
+            background-color: #333; /* Color de fondo del input */
+            color: #fff; /* Color de texto en el input */
+        }
+
+        /* Estilo de los inputs en foco */
+        input:focus {
+            border-color: #4CAF50; /* Color de borde al enfocarse */
+            outline: none; /* Elimina el contorno */
+        }
+
+        /* Estilo de los botones */
+        button {
+            width: 100%; /* Ancho total */
+            height: 50px; /* Altura del botón */
+            background-color: #4CAF50; /* Color de fondo verde */
+            color: #ffffff; /* Color de texto blanco */
+            border: none; /* Sin borde */
+            border-radius: 4px; /* Bordes redondeados */
+            cursor: pointer; /* Cambia el cursor al pasar por encima */
+            transition: background-color 0.3s; /* Transición para el efecto hover */
+            margin-top: 10px; /* Margen superior */
+        }
+
+        /* Efecto hover para el botón */
+        button:hover {
+            background-color: #45a049; /* Color de fondo al pasar el mouse */
+        }
+
+        /* Estilo de la cabecera */
+        h1 {
+            margin-bottom: 20px; /* Margen inferior */
+        }
+    </style>
+</head>
+<body>
+    <h1>Tales de Mileto</h1>
+    <!-- Contenedor principal -->
+    <div id="container">
+        <!-- Sesiones con audio y preguntas -->
+        <div class="session">
+            <p>Tales de Mileto es considerado uno de los primeros filósofos de la historia occidental. Su cosmovisión se basaba en la idea de que el universo tenía un principio fundamental o "arjé", que para él era el agua. Tales creía que todo en la naturaleza surgía a partir del agua y que este elemento era el origen de todas las cosas. Para Tales, la naturaleza no estaba gobernada por los dioses, sino por leyes naturales que podían ser entendidas a través de la razón y la observación.
+            </p>
+            <input type="text" placeholder="Escribe aquí tu respuesta">
+        </div>
+        <div class="session">
+            <audio src="https://polyglot-sapereaude.000webhostapp.com/wp-content/Hi%20-%20Realizzato%20con%20Clipchamp.mp3" controls></audio>
+            <p>Thales of Miletus is considered one of the first philosophers in Western history. His worldview was based on the idea that the universe had a fundamental principle or "arche," which for him was water. Thales believed that everything in nature arose from water and that this element was the origin of all things. For Thales, nature was not governed by the gods, but by natural laws that could be understood through reason and observation.
+            </p>
+            <input type="text" placeholder="Escribe aquí tu respuesta">
+        </div>
+        <div class="session">
+            <audio src="https://polyglot-sapereaude.000webhostapp.com/wp-content/Good%20Morning%20-%20Realizzato%20con%20Clipchamp.mp3" controls></audio>
+            <p>Téils of Mailítus is consíderd uan of de férst filósófers in wéstern hístori. Jís wuórldvíu uás béist on di aidiá dat de iúnivers jad a fándamental prínsipl or árki, wích for jím uás uórer. Téils bilívd dat évrithing in néichur aróus from uórer and dat dis élement uás di órijin of ol things. For Téils, néichur uás not góvernd bai de gods, bat bai náchural lós dat cud bi anderstúd thrú ríson and obzervéishon.
+            </p>
+            <input type="text" placeholder="Escribe aquí tu respuesta">
+        </div>
+    </div>
+</body>
+</html>
