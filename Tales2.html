@@ -1,0 +1,214 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #0d1f2d;
+      background-image: url("https://www.transparenttextures.com/patterns/dark-matter.png");
+      color: white;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    #container {
+      width: 90%;
+      max-width: 600px;
+      text-align: center;
+      background-color: rgba(255, 255, 255, 0.1);
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .session {
+      width: 100%;
+      display: none;
+      animation: fadeIn 0.8s ease-in-out;
+    }
+
+    .session:first-child {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    audio {
+      width: 100%;
+      margin-top: 10px;
+    }
+
+    p {
+      color: #f0f8ff;
+      font-size: 18px;
+    }
+
+    input {
+      width: 95%;
+      height: 45px;
+      margin-top: 10px;
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      background-color: #fff;
+      font-size: 16px;
+    }
+
+    input:focus {
+      outline: 2px solid #50c878;
+    }
+
+    button {
+      width: 95%;
+      height: 45px;
+      margin-top: 15px;
+      background-color: #50c878;
+      border: none;
+      border-radius: 5px;
+      color: white;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #45b469;
+    }
+  </style>
+  <script>
+    var index = 0;
+    function iniciar() {
+      var sessions = document.getElementsByClassName("session");
+      var button = document.getElementById("next");
+      button.onclick = function() {
+        index++;
+        if (index >= sessions.length) {
+          index = 0;
+        }
+        for (var i = 0; i < sessions.length; i++) {
+          if (i == index) {
+            sessions[i].style.display = "block";
+            var audio = sessions[i].getElementsByTagName("audio")[0];
+            audio.play();
+          } else {
+            sessions[i].style.display = "none";
+          }
+        }
+      };
+    }
+  </script>
+</head>
+<body onload="iniciar()">
+  <div id="container">
+    <div class="session">
+      <audio src="https://stevenpicj.github.io/polyglots/files%20(online-audio-converter.com)/Hi%20-%20Realizzato%20con%20Clipchamp.mp3" controls></audio>
+      <p><p>Tales of Miletus, an early Greek philosopher, believed that the cosmos was a unified and rational system.He proposed that water was the fundamental substance from which all things originated.</p>
+      <input type="text" placeholder="Escribe aquí tu respuesta">
+      <p> Tales de Mileto, uno de los primeros filósofos griegos, creía que el cosmos era un sistema unificado y racional. Propuso que el agua era la sustancia fundamental de la que todo se originaba</p>
+      <input type="text" placeholder="Escribe aquí tu respuesta">
+    </div>
+    <div class="session">
+      <audio src="https://stevenpicj.github.io/polyglots/files%20(online-audio-converter.com)/Good%20Morning%20-%20Realizzato%20con%20Clipchamp.mp3" controls></audio>
+      <p> This idea signified that the cosmos was not chaotic but had an underlying order and predictability, imbued with divinity.</p>
+       <input type="text" placeholder="Escribe aquí tu respuesta">
+    </div>
+    <div class="session">
+      <audio src="https://stevenpicj.github.io/polyglots/files%20(online-audio-converter.com)/Good%20afternoon%20-%20Realizzato%20con%20Clipchamp.mp3" controls></audio>
+      <p> Tales of Miletus, an early Greek philosopher, believed that the cosmos was a unified and rational system. He proposed that water was the fundamental substance from which all things originated. This idea signified that the cosmos was not chaotic but had an underlying order and predictability, imbued with divinity.</p>
+      <input type="text" placeholder="Escribe aquí tu respuesta">
+    </div>
+    <div class="session">
+      <audio src="https://stevenpicj.github.io/polyglots/files%20(online-audio-converter.com)/Good%20evening%20-%20Realizzato%20con%20Clipchamp.mp3" controls></audio>
+      <p>birthday (bérzdei) cumpleaños</p>
+      <input type="text" placeholder="Escribe aquí tu respuesta">
+    </div>
+    <div class="session">
+      <audio src="https://stevenpicj.github.io/polyglots/files%20(online-audio-converter.com)/Good%20night%20-%20Realizzato%20con%20Clipchamp.mp3" controls></audio>
+      <p>birthplace (bérzpléis) lugar de nacimiento</p>
+      <input type="text" placeholder="Escribe aquí tu respuesta">
+    </div>
+    <div class="session">
+      <audio src="https://stevenpicj.github.io/polyglots/files%20(online-audio-converter.com)/How%20are%20you_%20-%20Realizzato%20con%20Clipchamp.mp3" controls></audio>
+      <p>address (ádres) dirección<p>
+      <input type="text" placeholder="Escribe aquí tu respuesta">
+    </div>
+    <div class="session">
+      <audio src="https://stevenpicj.github.io/polyglots/files%20(online-audio-converter.com)/How%20are%20you%20doing_%20-%20Realizzato%20con%20Clipchamp.mp3" controls></audio>
+      <p>phone number (fóun námber) número de teléfono</p>
+      <input type="text" placeholder="Escribe aquí tu respuesta">
+    </div>
+    <div class="session">
+      <audio src="https://stevenpicj.github.io/polyglots/files%20(online-audio-converter.com)/What%E2%80%99s%20up_%20-%20Realizzato%20con%20Clipchamp.mp3" controls></audio>
+      <p>email address (ímél ádres)</p>
+      <p>dirección de correo electrónico</p>
+      <input type="text" placeholder="Escribe aquí tu respuesta">
+    </div>
+    <div class="session">
+      <audio src="https://stevenpicj.github.io/polyglots/files%20(online-audio-converter.com)/I%E2%80%99m%20fine,%20thanks.%20And%20you_%20-%20Realizzato%20con%20Clipchamp.mp3" controls></audio>
+      <p>nationality (nashionáliti) nacionalidad</p>
+      <input type="text" placeholder="Escribe aquí tu respuesta">
+    </div>
+    <div class="session">
+      <audio src="https://stevenpicj.github.io/polyglots/files%20(online-audio-converter.com)/Nice%20to%20meet%20you.%20-%20Realizzato%20con%20Clipchamp.mp3" controls></audio>
+      <p>occupation (ókiupéishon) ocupación</p>
+      <input type="text" placeholder="Escribe aquí tu respuesta">
+    </div>
+    <div class="session">
+      <audio src="https://stevenpicj.github.io/polyglots/files%20(online-audio-converter.com)/Pleased%20to%20meet%20you.%20-%20Realizzato%20con%20Clipchamp.mp3" controls></audio>
+      <p>job (yób) trabajo</p>
+      <input type="text" placeholder="Escribe aquí tu respuesta">
+    </div>
+    <div class="session">
+        <audio src="https://stevenpicj.github.io/polyglots/files%20(online-audio-converter.com)/Pleased%20to%20meet%20you.%20-%20Realizzato%20con%20Clipchamp.mp3" controls></audio>
+        <p>hobby (jóbbi) pasatiempo</p>
+        <input type="text" placeholder="Escribe aquí tu respuesta">
+      </div>
+      <div class="session">
+        <audio src="https://stevenpicj.github.io/polyglots/files%20(online-audio-converter.com)/Pleased%20to%20meet%20you.%20-%20Realizzato%20con%20Clipchamp.mp3" controls></audio>
+        <p>interest (ínterest) interés</p>
+        <input type="text" placeholder="Escribe aquí tu respuesta">
+      </div>
+      <div class="session">
+        <audio src="https://stevenpicj.github.io/polyglots/files%20(online-audio-converter.com)/Pleased%20to%20meet%20you.%20-%20Realizzato%20con%20Clipchamp.mp3" controls></audio>
+        <p>family (fámili) familia</p>
+        <input type="text" placeholder="Escribe aquí tu respuesta">
+      </div>
+      <div class="session">
+        <audio src="https://stevenpicj.github.io/polyglots/files%20(online-audio-converter.com)/Pleased%20to%20meet%20you.%20-%20Realizzato%20con%20Clipchamp.mp3" controls></audio>
+        <p>partner (párter) pareja</p>
+        <input type="text" placeholder="Escribe aquí tu respuesta">
+      </div>
+      <div class="session">
+        <audio src="https://stevenpicj.github.io/polyglots/files%20(online-audio-converter.com)/Pleased%20to%20meet%20you.%20-%20Realizzato%20con%20Clipchamp.mp3" controls></audio>
+        <p>friend (frend) amigo/a</p>
+        <input type="text" placeholder="Escribe aquí tu respuesta">
+      </div>
+      <div class="session">
+        <audio src="https://stevenpicj.github.io/polyglots/files%20(online-audio-converter.com)/Pleased%20to%20meet%20you.%20-%20Realizzato%20con%20Clipchamp.mp3" controls></audio>
+        <p>pet (pet) mascota</p>
+        <input type="text" placeholder="Escribe aquí tu respuesta">
+      </div>
+    <!-- Agregar más sesiones aquí -->
+    <button id="next">Siguiente</button>
+  </div>
+</body>
+</html>
