@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ateneo Investigation</title>
+    <style>
+        body { font-family: Arial, sans-serif; background-color: #f5f5f5; color: #333; }
+        .header { display: flex; justify-content: space-between; align-items: center; padding: 10px 20px; background-color: #0066cc; color: #fff; }
+        .header h1 { margin: 0; }
+        .container { width: 80%; margin: auto; }
+        .search-bar { margin: 20px 0; display: flex; }
+        .search-bar input { width: 100%; padding: 10px; font-size: 16px; }
+        .article-list { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        .article-card { background-color: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+        .like-button { background-color: #ff6666; color: #fff; padding: 5px 10px; border: none; border-radius: 5px; cursor: pointer; }
+        .admin-panel { background-color: #eaeaea; padding: 20px; border-radius: 8px; }
+        .upload-form { display: flex; flex-direction: column; gap: 10px; }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <div class="header">
+        <h1>Scientific Articles Platform</h1>
+        <button onclick="toggleAdminPanel()">Admin Panel</button>
+    </div>
+
+    <div class="container">
+
+        <!-- Search Bar -->
+        <div class="search-bar">
+            <input type="text" id="searchInput" oninput="filterArticles()" placeholder="Search for articles by title...">
+        </div>
+
+        <!-- Article List -->
+        <div class="article-list" id="articleList">
+            <div class="article-card" data-title="Philosophy of Language">
+                <h2>Philosophy of Language</h2>
+                <p>An insightful article on language and its impact on thought.</p>
+                <button class="like-button" onclick="addLike(this)">Like</button>
+            </div>
+            <div class="article-card" data-title="Linguistic Relativity">
+                <h2>Linguistic Relativity</h2>
+                <p>Explores how language shapes our perception of reality.</p>
+                <button class="like-button" onclick="addLike(this)">Like</button>
+            </div>
+        </div>
+
+        <!-- PDF Viewer Placeholder -->
+        <div class="pdf-viewer" style="margin-top: 20px;">
+            <h3>PDF Viewer</h3>
+            <p>Here you can view the selected article.</p>
+        </div>
+
+        <!-- Admin Panel (Hidden by default) -->
+        <div class="admin-panel" id="adminPanel" style="display: none;">
+            <h2>Admin Panel - Upload New Article</h2>
+            <form class="upload-form">
+                <input type="text" placeholder="Article Title" required>
+                <textarea placeholder="Article Description" required></textarea>
+                <input type="file" accept=".pdf" required>
+                <button type="submit">Upload Article</button>
+            </form>
+        </div>
+
+    </div>
+
+    <!-- JavaScript for functionality -->
+    <script>
+        function toggleAdminPanel() {
+            const panel = document.getElementById('adminPanel');
+            panel.style.display = panel.style.display === 'none' ? 'block' : 'none';
+        }
+
+        function addLike(button) {
+            let currentLikes = button.innerText === "Like" ? 0 : parseInt(button.innerText.split(" ")[1]);
+            currentLikes++;
+            button.innerText = `Liked (${currentLikes})`;
+            button.style.backgroundColor = '#4CAF50';
+        }
+
+        function filterArticles() {
+            const searchInput = document.getElementById('searchInput').value.toLowerCase();
+            const articles = document.querySelectorAll('.article-card');
+            articles.forEach(article => {
+                const title = article.getAttribute('data-title').toLowerCase();
+                article.style.display = title.includes(searchInput) ? 'block' : 'none';
+            });
+        }
+    </script>
+</body>
+</html>
