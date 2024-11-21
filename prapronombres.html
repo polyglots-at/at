@@ -1,0 +1,160 @@
+
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #0d1f2d;
+      background-image: url("https://www.transparenttextures.com/patterns/dark-matter.png");
+      color: white;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    #container {
+      width: 90%;
+      max-width: 600px;
+      text-align: center;
+      background-color: rgba(255, 255, 255, 0.1);
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .session {
+      width: 100%;
+      display: none;
+      animation: fadeIn 0.8s ease-in-out;
+    }
+
+    .session:first-child {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    audio {
+      width: 100%;
+      margin-top: 10px;
+    }
+
+    p {
+      color: #f0f8ff;
+      font-size: 18px;
+    }
+
+    input {
+      width: 95%;
+      height: 45px;
+      margin-top: 10px;
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      background-color: #fff;
+      font-size: 16px;
+    }
+
+    input:focus {
+      outline: 2px solid #50c878;
+    }
+
+    button {
+      width: 95%;
+      height: 45px;
+      margin-top: 15px;
+      background-color: #50c878;
+      border: none;
+      border-radius: 5px;
+      color: white;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #45b469;
+    }
+  </style>
+  <script>
+    var index = 0;
+    function iniciar() {
+      var sessions = document.getElementsByClassName("session");
+      var button = document.getElementById("next");
+      button.onclick = function() {
+        index++;
+        if (index >= sessions.length) {
+          index = 0;
+        }
+        for (var i = 0; i < sessions.length; i++) {
+          if (i == index) {
+            sessions[i].style.display = "block";
+            var audio = sessions[i].getElementsByTagName("audio")[0];
+            audio.play();
+          } else {
+            sessions[i].style.display = "none";
+          }
+        }
+      };
+    }
+  </script>
+</head>
+<body onload="iniciar()">
+  <div id="container">
+
+    <div class="session">
+      <audio src="https://polyglots-at.github.io/at/Im%20Learning%20English.m4a" controls></audio>
+      <p> I am learning English </p>
+      <p>ai am lern-ing In-glish</p>
+      <input type="text" placeholder="Escribe aquí tu respuesta">
+    </div>
+    <div class="session">
+      <audio src="https://polyglots-at.github.io/at/Im%20Learning%20English.m4a" controls></audio>
+      <p> I am learning Englis</p>
+      <p>Estoy aprendiendo Inglés</p>
+      <input type="text" placeholder="Escribe aquí tu respuesta">    </div>
+    <div class="session">
+      <audio src="https://polyglots-at.github.io/at/Im%20Learning%20English.m4a" controls></audio>
+      <p> I am: Yo soy - Yo estoy<p>
+      <p> Learning English - Aprendiendo Inglés<p></p>
+      <input type="text" placeholder="Escribe aquí tu respuesta">    </div>
+    <div class="session">
+      <audio src="https://polyglots-at.github.io/at/You%20are%20my%20friend.mp3" controls></audio>
+      <p>You are my friend - iu ar mai frend</p>
+      <input type="text" placeholder="Escribe aquí tu respuesta">    </div>
+    <div class="session">
+      <audio src="https://polyglots-at.github.io/at/You%20are%20my%20friend.mp3" controls></audio>
+      <p>You are my friend - Tú eres mi amigo</p>
+      <input type="text" placeholder="Escribe aquí tu respuesta">
+    </div>
+    <div class="session">
+      <audio src="https://polyglots-at.github.io/at/You%20are%20my%20friend.mp3" controls></audio>
+      <p>You are - Tú eres, tú estás</p>
+      <p>My friend - Mi amigo/a </p>
+      <input type="text" placeholder="Escribe aquí tu respuesta">   
+     </div>
+    
+    <!-- Agregar más sesiones aquí -->
+    <button id="next">Siguiente</button>
+  </div>
+</body>
+</html>
