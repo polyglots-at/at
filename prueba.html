@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prueba de Inglés</title>
+    <style>
+        body {
+            background-color: black;
+            color: white;
+            font-family: 'Times New Roman', serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        #contenedor {
+            width: 80%;
+            max-width: 600px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        button {
+            background-color: #008080; /* Color acuático */
+            color: white;
+            padding: 10px 20px;
+            margin: 10px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        button:hover {
+            background-color: #006666; /* Un tono más oscuro al pasar el ratón */
+        }
+    </style>
+</head>
+<body>
+    <div id="contenedor">
+        <h1>Prueba de Inglés</h1>
+        <div id="temporizador">Tiempo restante: <span id="tiempo"></span></div>
+        <div id="pregunta"></div>
+        <div id="opciones">
+            <button id="correcta">Correcta</button>
+            <button id="incorrecta">Incorrecta</button>
+        </div>
+        <div id="resultado" style="display: none;"></div>
+    </div>
+    <script>
+        const preguntas = [
+            {
+                pregunta: "He is going to the store.",
+                respuesta: true
+            },
+            {
+                pregunta: "My's car is red.",
+                respuesta: false
+            },
+            {
+                pregunta: "They are my friends.",
+                respuesta: true
+            },
+            {
+                pregunta: "A cat are sleeping.",
+                respuesta: false
+            },
+            {
+                pregunta: "This is her book.",
+                respuesta: true
+            },
+            {
+                pregunta: "I are happy.",
+                respuesta: false
+            },
+            {
+                pregunta: "The dog is barking.",
+                respuesta: true
+            },
+            {
+                pregunta: "Their's house is big.",
+                respuesta: false
+            },
+            {
+                pregunta: "We are learning English.",
+                respuesta: true
+            },
+            {
+                pregunta: "She have a car.",
+                respuesta: false
+            }
+
+        ];
+
+        let preguntaActual = 0;
+        let puntuacion = 0;
+        let tiempoRestante = 120; // 2 minutos en segundos
+
+        const preguntaElemento = document.getElementById('pregunta');
+        const opcionesElemento = document.getElementById('opciones');
+        const resultadoElemento = document.getElementById('resultado');
+        const tiempoElemento = document.getElementById('tiempo');
+        const botonCorrecta = document.getElementById('correcta');
+        const botonIncorrecta = document.getElementById('incorrecta');
+
+        function mostrarPregunta() {
+            preguntaElemento.textContent = preguntas[preguntaActual].pregunta;
+        }
+
+        function verificarRespuesta(respuestaUsuario) {
+            if (respuestaUsuario === preguntas[preguntaActual].respuesta) {
+                puntuacion += 2;
+            }
+
+            preguntaActual++;
+
+            if (preguntaActual < preguntas.length) {
+                mostrarPregunta();
+            } else {
+                finalizarPrueba();
+            }
+        }
+
+        function actualizarTemporizador() {
+            tiempoElemento.textContent = tiempoRestante;
+            if (tiempoRestante <= 0) {
+                finalizarPrueba();
+            } else {
+                tiempoRestante--;
+                setTimeout(actualizarTemporizador, 1000);
+            }
+        }
+
+        function finalizarPrueba() {
+            preguntaElemento.style.display = 'none';
+            opcionesElemento.style.display = 'none';
+            tiempoElemento.parentElement.style.display = 'none';
+
+            let mensaje = `Tu puntuación es: ${puntuacion} / 20. `;
+            if (puntuacion >= 17) {
+                mensaje += "¡Aprobado!";
+            } else {
+                mensaje += "Reprobado.";
+            }
+
+            resultadoElemento.textContent = mensaje;
+            resultadoElemento.style.display = 'block';
+        }
+
+        botonCorrecta.addEventListener('click', () => verificarRespuesta(true));
+        botonIncorrecta.addEventListener('click', () => verificarRespuesta(false));
+
+        mostrarPregunta();
+        actualizarTemporizador();
+    </script>
+</body>
+</html>
